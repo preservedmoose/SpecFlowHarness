@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace CIAndT.SpecFlowHarness.FunctionalTests.Features
+namespace PreservedMoose.SpecFlowHarness.FunctionalTests.Features
 {
 	using TechTalk.SpecFlow;
 

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using CIAndT.SpecFlowHarness.FunctionalTests.StepRows;
+using PreservedMoose.SpecFlowHarness.FunctionalTests.StepRows;
 
-namespace CIAndT.SpecFlowHarness.FunctionalTests.Steps
+namespace PreservedMoose.SpecFlowHarness.FunctionalTests.Steps
 {
 	public class CalculatorData
 	{

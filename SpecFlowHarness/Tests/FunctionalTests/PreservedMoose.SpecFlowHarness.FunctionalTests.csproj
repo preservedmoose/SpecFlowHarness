@@ -7,8 +7,8 @@
     <ProjectGuid>{EE44639F-119D-4BE7-A214-BB0DC8E6B807}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CIAndT.SpecFlowHarness.FunctionalTests</RootNamespace>
-    <AssemblyName>CIAndT.SpecFlowHarness.FunctionalTests</AssemblyName>
+    <RootNamespace>PreservedMoose.SpecFlowHarness.FunctionalTests</RootNamespace>
+    <AssemblyName>PreservedMoose.SpecFlowHarness.FunctionalTests</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
@@ -153,9 +153,9 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Source\SpecFlowHarness\CIAndT.SpecFlowHarness.csproj">
+    <ProjectReference Include="..\..\Source\SpecFlowHarness\PreservedMoose.SpecFlowHarness.csproj">
       <Project>{28cae5cb-aa5d-4b17-a0f9-fae767d6e169}</Project>
-      <Name>CIAndT.SpecFlowHarness</Name>
+      <Name>PreservedMoose.SpecFlowHarness</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using CIAndT.SpecFlowHarness.FunctionalTests.StepRows;
+using PreservedMoose.SpecFlowHarness.FunctionalTests.StepRows;
 using TechTalk.SpecFlow;
 
-namespace CIAndT.SpecFlowHarness.FunctionalTests.Steps
+namespace PreservedMoose.SpecFlowHarness.FunctionalTests.Steps
 {
 	[Binding]
 	[Scope(Tag = "Core")]

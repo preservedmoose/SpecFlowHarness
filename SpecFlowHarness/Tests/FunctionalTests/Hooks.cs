@@ -1,6 +1,6 @@
 ﻿using TechTalk.SpecFlow;
 
-namespace CIAndT.SpecFlowHarness.FunctionalTests
+namespace PreservedMoose.SpecFlowHarness.FunctionalTests
 {
 	[Binding]
 	public class Hooks : BaseSteps

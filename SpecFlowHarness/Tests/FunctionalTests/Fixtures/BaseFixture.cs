@@ -8,7 +8,7 @@ using Moq;
 using NUnit.Framework;
 using TinyIoC;
 
-namespace CIAndT.SpecFlowHarness.FunctionalTests.Fixtures
+namespace PreservedMoose.SpecFlowHarness.FunctionalTests.Fixtures
 {
 	public class BaseFixture
 	{

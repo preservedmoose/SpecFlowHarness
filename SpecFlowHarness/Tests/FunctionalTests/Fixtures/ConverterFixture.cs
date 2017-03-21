@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using CIAndT.SpecFlowHarness.FunctionalTests.TestClasses;
 using FluentAssertions;
 using NUnit.Framework;
+using PreservedMoose.SpecFlowHarness.FunctionalTests.TestClasses;
 
-namespace CIAndT.SpecFlowHarness.FunctionalTests.Fixtures
+namespace PreservedMoose.SpecFlowHarness.FunctionalTests.Fixtures
 {
 	// ReSharper disable InconsistentNaming
 	[TestFixture]

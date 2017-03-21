@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TechTalk.SpecFlow;
 
-namespace CIAndT.SpecFlowHarness.FunctionalTests.StepRows
+namespace PreservedMoose.SpecFlowHarness.FunctionalTests.StepRows
 {
 	// ReSharper disable BuiltInTypeReferenceStyle
 	// ReSharper disable UnusedAutoPropertyAccessor.Local

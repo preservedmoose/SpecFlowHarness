@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace CIAndT.SpecFlowHarness.FunctionalTests.StepRows
+namespace PreservedMoose.SpecFlowHarness.FunctionalTests.StepRows
 {
 	public sealed class LargeTestResult
 	{

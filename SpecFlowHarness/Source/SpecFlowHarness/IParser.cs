@@ -1,6 +1,6 @@
 using System;
 
-namespace CIAndT.SpecFlowHarness
+namespace PreservedMoose.SpecFlowHarness
 {
 	/// <summary>
 	/// This class is slightly different from the Converter class

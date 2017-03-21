@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CIAndT.SpecFlowHarness
+namespace PreservedMoose.SpecFlowHarness
 {
 	internal class StepRowAssertion<T>
 	{

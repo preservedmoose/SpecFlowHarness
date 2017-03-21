@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using TechTalk.SpecFlow;
 
-namespace CIAndT.SpecFlowHarness
+namespace PreservedMoose.SpecFlowHarness
 {
 	public abstract class BaseStepRow
 	{

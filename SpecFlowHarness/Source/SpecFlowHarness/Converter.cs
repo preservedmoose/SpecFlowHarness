@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 
-namespace CIAndT.SpecFlowHarness
+namespace PreservedMoose.SpecFlowHarness
 {
 	public class Converter : IConverter
 	{

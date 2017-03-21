@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using CIAndT.SpecFlowHarness.FunctionalTests.StepRows;
 using FluentAssertions;
+using PreservedMoose.SpecFlowHarness.FunctionalTests.StepRows;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 
-namespace CIAndT.SpecFlowHarness.FunctionalTests.Steps
+namespace PreservedMoose.SpecFlowHarness.FunctionalTests.Steps
 {
 	[Binding]
 	[Scope(Tag = "Core")]

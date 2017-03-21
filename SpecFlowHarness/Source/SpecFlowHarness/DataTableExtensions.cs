@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Text;
 
-namespace CIAndT.SpecFlowHarness
+namespace PreservedMoose.SpecFlowHarness
 {
 	/// <summary>
 	/// Helper extension methods for handling DataTable modifications

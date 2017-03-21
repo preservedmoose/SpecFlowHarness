@@ -2,7 +2,7 @@
 using System.Threading;
 using TechTalk.SpecFlow;
 
-namespace CIAndT.SpecFlowHarness
+namespace PreservedMoose.SpecFlowHarness
 {
 	public class BaseSteps : Steps
 	{

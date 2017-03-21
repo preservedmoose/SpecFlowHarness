@@ -1,4 +1,4 @@
-﻿namespace CIAndT.SpecFlowHarness
+﻿namespace PreservedMoose.SpecFlowHarness
 {
 	//
 	// define an interface for conversion of string to object

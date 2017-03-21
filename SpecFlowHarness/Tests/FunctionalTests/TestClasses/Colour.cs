@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace CIAndT.SpecFlowHarness.FunctionalTests.TestClasses
+namespace PreservedMoose.SpecFlowHarness.FunctionalTests.TestClasses
 {
 	public enum Colour
 	{

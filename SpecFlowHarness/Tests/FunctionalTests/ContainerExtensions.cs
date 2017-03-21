@@ -1,7 +1,7 @@
 ﻿using Moq;
 using TinyIoC;
 
-namespace CIAndT.SpecFlowHarness.FunctionalTests
+namespace PreservedMoose.SpecFlowHarness.FunctionalTests
 {
 	/// <summary>
 	/// Contains extension methods For TinyIoCContainer

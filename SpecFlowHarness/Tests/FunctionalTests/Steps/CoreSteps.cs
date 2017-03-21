@@ -1,6 +1,6 @@
 ﻿using TinyIoC;
 
-namespace CIAndT.SpecFlowHarness.FunctionalTests.Steps
+namespace PreservedMoose.SpecFlowHarness.FunctionalTests.Steps
 {
 	public class CoreSteps : BaseSteps
 	{

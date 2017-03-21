@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using CIAndT.SpecFlowHarness.FunctionalTests.StepRows;
-using CIAndT.SpecFlowHarness.FunctionalTests.TestClasses;
+using PreservedMoose.SpecFlowHarness.FunctionalTests.StepRows;
+using PreservedMoose.SpecFlowHarness.FunctionalTests.TestClasses;
 using TechTalk.SpecFlow;
 using TinyIoC;
 
-namespace CIAndT.SpecFlowHarness.FunctionalTests
+namespace PreservedMoose.SpecFlowHarness.FunctionalTests
 {
 	[Binding]
 	public class Transforms : BaseTransforms

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using CIAndT.SpecFlowHarness.FunctionalTests.TestClasses;
+using PreservedMoose.SpecFlowHarness.FunctionalTests.TestClasses;
 using TechTalk.SpecFlow;
 
-namespace CIAndT.SpecFlowHarness.FunctionalTests.StepRows
+namespace PreservedMoose.SpecFlowHarness.FunctionalTests.StepRows
 {
 	// ReSharper disable BuiltInTypeReferenceStyle
 	// ReSharper disable UnusedAutoPropertyAccessor.Local

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.Entity;
 
-namespace CIAndT.SpecFlowHarness.FunctionalTests
+namespace PreservedMoose.SpecFlowHarness.FunctionalTests
 {
 	public interface IDbContext : IDisposable
 	{

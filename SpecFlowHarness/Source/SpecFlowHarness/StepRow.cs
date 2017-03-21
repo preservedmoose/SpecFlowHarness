@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using TechTalk.SpecFlow;
 
-namespace CIAndT.SpecFlowHarness
+namespace PreservedMoose.SpecFlowHarness
 {
 	public abstract class StepRow<TStepRow> : BaseStepRow where TStepRow : BaseStepRow
 	{

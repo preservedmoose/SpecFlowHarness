@@ -1,4 +1,4 @@
-﻿namespace CIAndT.SpecFlowHarness
+﻿namespace PreservedMoose.SpecFlowHarness
 {
 	internal static class StepRowAssertionFactory
 	{

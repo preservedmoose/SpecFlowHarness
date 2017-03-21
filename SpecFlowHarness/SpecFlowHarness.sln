@@ -7,9 +7,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{AFAFCD
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F2244364-9EA4-4DB6-AC4C-6A71D430E4E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIAndT.SpecFlowHarness.FunctionalTests", "Tests\FunctionalTests\CIAndT.SpecFlowHarness.FunctionalTests.csproj", "{EE44639F-119D-4BE7-A214-BB0DC8E6B807}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PreservedMoose.SpecFlowHarness.FunctionalTests", "Tests\FunctionalTests\PreservedMoose.SpecFlowHarness.FunctionalTests.csproj", "{EE44639F-119D-4BE7-A214-BB0DC8E6B807}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIAndT.SpecFlowHarness", "Source\SpecFlowHarness\CIAndT.SpecFlowHarness.csproj", "{28CAE5CB-AA5D-4B17-A0F9-FAE767D6E169}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PreservedMoose.SpecFlowHarness", "Source\SpecFlowHarness\PreservedMoose.SpecFlowHarness.csproj", "{28CAE5CB-AA5D-4B17-A0F9-FAE767D6E169}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
