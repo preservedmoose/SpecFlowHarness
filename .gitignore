@@ -1,0 +1,9 @@
+# ignore compilation objects anywhere in the tree
+
+**/bin
+**/obj
+
+# ignore .Net packages
+
+**/packages
+
