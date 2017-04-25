@@ -7,3 +7,6 @@
 
 **/packages
 
+# ignore Pickles documentation
+
+**/Pickles
