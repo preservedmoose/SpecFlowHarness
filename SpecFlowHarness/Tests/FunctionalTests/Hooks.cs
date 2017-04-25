@@ -7,7 +7,7 @@ namespace PreservedMoose.SpecFlowHarness.FunctionalTests
 	{
 		public static bool CannotExecuteBeforeFeature { get; set; }
 
-		private static volatile bool _initilized;
+		private static volatile bool _initialised;
 
 		// ---------------------------------------------------------------------------------------
 
@@ -28,12 +28,12 @@ namespace PreservedMoose.SpecFlowHarness.FunctionalTests
 		{
 			if (CannotExecuteBeforeFeature) return;
 
-			if (!_initilized)
+			if (!_initialised)
 			{
 				// perform initialisation
 				// ...
 
-				_initilized = true;
+				_initialised = true;
 			}
 		}
 
