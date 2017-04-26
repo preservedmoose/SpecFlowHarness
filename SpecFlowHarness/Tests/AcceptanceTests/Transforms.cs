@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using PreservedMoose.SpecFlowHarness.AcceptanceTests.StepRows;
-using PreservedMoose.SpecFlowHarness.AcceptanceTests.TestClasses;
+using PreservedMoose.SpecFlowHarness.TestClasses;
 using TechTalk.SpecFlow;
 using TinyIoC;
 

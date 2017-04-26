@@ -62,6 +62,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\TestClasses\Colour.cs">
+      <Link>TestClasses\Colour.cs</Link>
+    </Compile>
+    <Compile Include="..\TestClasses\CycleType.cs">
+      <Link>TestClasses\CycleType.cs</Link>
+    </Compile>
+    <Compile Include="..\TestClasses\YearMonth.cs">
+      <Link>TestClasses\YearMonth.cs</Link>
+    </Compile>
+    <Compile Include="..\TestClasses\YearMonthComparer.cs">
+      <Link>TestClasses\YearMonthComparer.cs</Link>
+    </Compile>
+    <Compile Include="..\TestClasses\YearMonthEqualityComparer.cs">
+      <Link>TestClasses\YearMonthEqualityComparer.cs</Link>
+    </Compile>
     <Compile Include="Features\StepTestRow.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -81,11 +96,6 @@
     <Compile Include="Steps\CoreSteps.cs" />
     <Compile Include="Steps\CoreThenSteps.cs" />
     <Compile Include="Steps\CoreWhenSteps.cs" />
-    <Compile Include="TestClasses\Colour.cs" />
-    <Compile Include="TestClasses\CycleType.cs" />
-    <Compile Include="TestClasses\YearMonth.cs" />
-    <Compile Include="TestClasses\YearMonthComparer.cs" />
-    <Compile Include="TestClasses\YearMonthEqualityComparer.cs" />
     <Compile Include="TinyIoC.cs" />
     <Compile Include="Transforms.cs" />
   </ItemGroup>

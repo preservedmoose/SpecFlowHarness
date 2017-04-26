@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 
-namespace PreservedMoose.SpecFlowHarness.AcceptanceTests.TestClasses
+namespace PreservedMoose.SpecFlowHarness.TestClasses
 {
 	[Serializable]
 	public struct YearMonth : IEquatable<YearMonth>, IComparable<YearMonth>, IConvertibleFromString<YearMonth>

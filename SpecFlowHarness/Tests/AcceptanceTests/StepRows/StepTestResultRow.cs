@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using PreservedMoose.SpecFlowHarness.AcceptanceTests.TestClasses;
+using PreservedMoose.SpecFlowHarness.TestClasses;
 using TechTalk.SpecFlow;
 
 namespace PreservedMoose.SpecFlowHarness.AcceptanceTests.StepRows

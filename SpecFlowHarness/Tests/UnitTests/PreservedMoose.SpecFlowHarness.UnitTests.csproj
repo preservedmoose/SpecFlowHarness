@@ -78,17 +78,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\TestClasses\Colour.cs">
+      <Link>TestClasses\Colour.cs</Link>
+    </Compile>
+    <Compile Include="..\TestClasses\CycleType.cs">
+      <Link>TestClasses\CycleType.cs</Link>
+    </Compile>
+    <Compile Include="..\TestClasses\YearMonth.cs">
+      <Link>TestClasses\YearMonth.cs</Link>
+    </Compile>
+    <Compile Include="..\TestClasses\YearMonthComparer.cs">
+      <Link>TestClasses\YearMonthComparer.cs</Link>
+    </Compile>
+    <Compile Include="..\TestClasses\YearMonthEqualityComparer.cs">
+      <Link>TestClasses\YearMonthEqualityComparer.cs</Link>
+    </Compile>
     <Compile Include="ContainerExtensions.cs" />
     <Compile Include="Fixtures\BaseFixture.cs" />
     <Compile Include="Fixtures\ConverterFixture.cs" />
     <Compile Include="Fixtures\ParserFixture.cs" />
     <Compile Include="IDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestClasses\Colour.cs" />
-    <Compile Include="TestClasses\CycleType.cs" />
-    <Compile Include="TestClasses\YearMonth.cs" />
-    <Compile Include="TestClasses\YearMonthComparer.cs" />
-    <Compile Include="TestClasses\YearMonthEqualityComparer.cs" />
     <Compile Include="TinyIoC.cs" />
   </ItemGroup>
   <ItemGroup>

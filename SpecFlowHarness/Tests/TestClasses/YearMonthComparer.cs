@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace PreservedMoose.SpecFlowHarness.UnitTests.TestClasses
+namespace PreservedMoose.SpecFlowHarness.TestClasses
 {
 	public class YearMonthComparer : Comparer<YearMonth>
 	{

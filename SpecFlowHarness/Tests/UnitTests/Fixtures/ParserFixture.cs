@@ -1,7 +1,7 @@
 ﻿using System;
 using FluentAssertions;
 using NUnit.Framework;
-using PreservedMoose.SpecFlowHarness.UnitTests.TestClasses;
+using PreservedMoose.SpecFlowHarness.TestClasses;
 
 namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 {

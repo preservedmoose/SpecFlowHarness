@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using PreservedMoose.SpecFlowHarness.AcceptanceTests.TestClasses;
+using PreservedMoose.SpecFlowHarness.TestClasses;
 using TechTalk.SpecFlow;
 
 namespace PreservedMoose.SpecFlowHarness.AcceptanceTests.StepRows

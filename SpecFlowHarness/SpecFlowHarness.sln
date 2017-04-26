@@ -13,6 +13,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PreservedMoose.SpecFlowHarn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PreservedMoose.SpecFlowHarness.UnitTests", "Tests\UnitTests\PreservedMoose.SpecFlowHarness.UnitTests.csproj", "{356E1E9A-77E1-4907-8417-4EF3F1403F90}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestClasses", "TestClasses", "{5B24588D-D974-4038-BEF1-DD9C8712CB62}"
+	ProjectSection(SolutionItems) = preProject
+		Tests\TestClasses\Colour.cs = Tests\TestClasses\Colour.cs
+		Tests\TestClasses\CycleType.cs = Tests\TestClasses\CycleType.cs
+		Tests\TestClasses\YearMonth.cs = Tests\TestClasses\YearMonth.cs
+		Tests\TestClasses\YearMonthComparer.cs = Tests\TestClasses\YearMonthComparer.cs
+		Tests\TestClasses\YearMonthEqualityComparer.cs = Tests\TestClasses\YearMonthEqualityComparer.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,5 +48,6 @@ Global
 		{28CAE5CB-AA5D-4B17-A0F9-FAE767D6E169} = {AFAFCDBA-7FA9-41F6-9781-8A8A2D8DF995}
 		{E5546477-A9BE-467B-A39B-69F4B4A2DDA0} = {F2244364-9EA4-4DB6-AC4C-6A71D430E4E4}
 		{356E1E9A-77E1-4907-8417-4EF3F1403F90} = {F2244364-9EA4-4DB6-AC4C-6A71D430E4E4}
+		{5B24588D-D974-4038-BEF1-DD9C8712CB62} = {F2244364-9EA4-4DB6-AC4C-6A71D430E4E4}
 	EndGlobalSection
 EndGlobal
