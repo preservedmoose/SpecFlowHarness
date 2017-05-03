@@ -1,25 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using FluentAssertions;
-using NUnit.Framework;
 using PreservedMoose.SpecFlowHarness.TestClasses;
+using Xunit;
 
 namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 {
 	// ReSharper disable InconsistentNaming
-	[TestFixture]
-	public class ConverterFixture : BaseFixture
+	public class ConverterFixture : BaseFixture, IDisposable
 	{
-		public override void OneTimeSetUp()
+		public ConverterFixture()
 		{
-			base.OneTimeSetUp();
-
 			BaseContainer.Register(typeof(IConverter), typeof(Converter));
+		}
+
+		public void Dispose()
+		{
+			BaseContainer.Dispose();
 		}
 
 		// ---------------------------------------------------------------------------------------------
 
-		[Test]
+		[Fact]
 		public override void Container_should_return_instance_from_interface()
 		{
 			TestInterface<IConverter, Converter>();
@@ -27,10 +29,10 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 
 		// ---------------------------------------------------------------------------------------------
 
-		[TestCase(true, "true")]
-		[TestCase(false, "false")]
-		[TestCase(true, "yes")]
-		[TestCase(false, "no")]
+		[InlineData(true, "true")]
+		[InlineData(false, "false")]
+		[InlineData(true, "yes")]
+		[InlineData(false, "no")]
 		public void ToValue_should_convert_successfully_for_Boolean(Boolean expectedValue, string fromValue)
 		{
 			// Arrange
@@ -43,8 +45,8 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			actualValue.Should().Be(expectedValue);
 		}
 
-		[TestCase(1234, "1234")]
-		[TestCase(1234, "1,234")]
+		[InlineData(1234, "1234")]
+		[InlineData(1234, "1,234")]
 		public void ToValue_should_convert_successfully_for_Int16(Int16 expectedValue, string fromValue)
 		{
 			// Arrange
@@ -57,8 +59,8 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			actualValue.Should().Be(expectedValue);
 		}
 
-		[TestCase(1234, "1234")]
-		[TestCase(1234, "1,234")]
+		[InlineData(1234, "1234")]
+		[InlineData(1234, "1,234")]
 		public void ToValue_should_convert_successfully_for_Int32(Int32 expectedValue, string fromValue)
 		{
 			// Arrange
@@ -71,8 +73,8 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			actualValue.Should().Be(expectedValue);
 		}
 
-		[TestCase(1234, "1234")]
-		[TestCase(1234, "1,234")]
+		[InlineData(1234, "1234")]
+		[InlineData(1234, "1,234")]
 		public void ToValue_should_convert_successfully_for_Int64(Int64 expectedValue, string fromValue)
 		{
 			// Arrange
@@ -85,12 +87,12 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			actualValue.Should().Be(expectedValue);
 		}
 
-		[TestCase(2017, 01, 17, 0, 0, 0, 0, "2017-01-17")]
-		[TestCase(2017, 01, 17, 10, 55, 0, 0, "2017-01-17 10:55")]
-		[TestCase(2017, 01, 17, 10, 55, 33, 0, "2017-01-17 10:55:33")]
-		[TestCase(2017, 01, 17, 10, 55, 33, 1, "2017-01-17 10:55:33.001")]
-		[TestCase(2017, 01, 17, 10, 55, 33, 11, "2017-01-17 10:55:33.011")]
-		[TestCase(2017, 01, 17, 10, 55, 33, 111, "2017-01-17 10:55:33.111")]
+		[InlineData(2017, 01, 17, 0, 0, 0, 0, "2017-01-17")]
+		[InlineData(2017, 01, 17, 10, 55, 0, 0, "2017-01-17 10:55")]
+		[InlineData(2017, 01, 17, 10, 55, 33, 0, "2017-01-17 10:55:33")]
+		[InlineData(2017, 01, 17, 10, 55, 33, 1, "2017-01-17 10:55:33.001")]
+		[InlineData(2017, 01, 17, 10, 55, 33, 11, "2017-01-17 10:55:33.011")]
+		[InlineData(2017, 01, 17, 10, 55, 33, 111, "2017-01-17 10:55:33.111")]
 		public void ToValue_should_convert_successfully_for_DateTime(int year, int month, int day, int hour, int minute, int second, int millisecond, string fromValue)
 		{
 			// Arrange
@@ -105,7 +107,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			actualValue.Should().Be(expectedValue);
 		}
 
-		[Test]
+		[Fact]
 		public void ToValue_should_convert_successfully_for_Single()
 		{
 			// Arrange
@@ -121,7 +123,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			actualValue.Should().Be(expectedValue);
 		}
 
-		[Test]
+		[Fact]
 		public void ToValue_should_convert_successfully_for_Double()
 		{
 			// Arrange
@@ -137,7 +139,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			actualValue.Should().Be(expectedValue);
 		}
 
-		[Test]
+		[Fact]
 		public void ToValue_should_convert_successfully_for_Decimal()
 		{
 			// Arrange
@@ -153,7 +155,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			actualValue.Should().Be(expectedValue);
 		}
 
-		[Test]
+		[Fact]
 		public void ToValue_should_convert_successfully_for_String()
 		{
 			// Arrange
@@ -169,7 +171,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			actualValue.Should().Be(expectedValue);
 		}
 
-		[Test]
+		[Fact]
 		public void ToValue_should_return_with_default_when_no_data()
 		{
 			// Arrange
@@ -185,7 +187,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			actualValue.Should().Be(expectedValue);
 		}
 
-		[Test]
+		[Fact]
 		public void ToValue_should_fail_to_convert_with_error_for_Boolean()
 		{
 			// Arrange
@@ -200,7 +202,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			action.ShouldThrow<ArgumentException>();
 		}
 
-		[Test]
+		[Fact]
 		public void ToValue_should_fail_to_convert_with_error_for_Int16()
 		{
 			// Arrange
@@ -215,7 +217,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			action.ShouldThrow<ArgumentException>();
 		}
 
-		[Test]
+		[Fact]
 		public void ToValue_should_fail_to_convert_with_error_for_Int32()
 		{
 			// Arrange
@@ -230,7 +232,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			action.ShouldThrow<ArgumentException>();
 		}
 
-		[Test]
+		[Fact]
 		public void ToValue_should_fail_to_convert_with_error_for_Int64()
 		{
 			// Arrange
@@ -245,7 +247,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			action.ShouldThrow<ArgumentException>();
 		}
 
-		[Test]
+		[Fact]
 		public void ToValue_should_fail_to_convert_with_error_for_DateTime()
 		{
 			// Arrange
@@ -260,7 +262,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			action.ShouldThrow<ArgumentException>();
 		}
 
-		[Test]
+		[Fact]
 		public void ToValue_should_fail_to_convert_with_error_for_Single()
 		{
 			// Arrange
@@ -275,7 +277,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			action.ShouldThrow<ArgumentException>();
 		}
 
-		[Test]
+		[Fact]
 		public void ToValue_should_fail_to_convert_with_error_for_Double()
 		{
 			// Arrange
@@ -290,7 +292,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			action.ShouldThrow<ArgumentException>();
 		}
 
-		[Test]
+		[Fact]
 		public void ToValue_should_fail_to_convert_with_error_for_Decimal()
 		{
 			// Arrange
@@ -307,12 +309,12 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 
 		// ---------------------------------------------------------------------------------------------
 
-		[TestCase(Colour.Red, "Red")]
-		[TestCase(Colour.Blue, "Blue")]
-		[TestCase(Colour.Green, "Green")]
-		[TestCase(Colour.Red, "Red Colour")]
-		[TestCase(Colour.Blue, "Blue Colour")]
-		[TestCase(Colour.Green, "Green Colour")]
+		[InlineData(Colour.Red, "Red")]
+		[InlineData(Colour.Blue, "Blue")]
+		[InlineData(Colour.Green, "Green")]
+		[InlineData(Colour.Red, "Red Colour")]
+		[InlineData(Colour.Blue, "Blue Colour")]
+		[InlineData(Colour.Green, "Green Colour")]
 		public void ToEnum_should_convert_successfully(Colour expectedValue, string fromValue)
 		{
 			// Arrange
@@ -325,7 +327,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			actualValue.Should().Be(expectedValue);
 		}
 
-		[Test]
+		[Fact]
 		public void ToEnum_should_return_with_default_when_no_data()
 		{
 			// Arrange
@@ -341,7 +343,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			actualValue.Should().Be(expectedValue);
 		}
 
-		[Test]
+		[Fact]
 		public void ToEnum_should_fail_to_convert_with_error()
 		{
 			// Arrange
@@ -358,7 +360,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 
 		// ---------------------------------------------------------------------------------------------
 
-		[Test]
+		[Fact]
 		public void ToObject_should_convert_successfully()
 		{
 			// Arrange
@@ -375,7 +377,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			actualValue.Should().Be(expectedValue);
 		}
 
-		[Test]
+		[Fact]
 		public void ToObject_should_fail_to_convert_with_error()
 		{
 			// Arrange
@@ -392,7 +394,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 
 		// ---------------------------------------------------------------------------------------------
 
-		[Test]
+		[Fact]
 		public void ToObjectStatic_should_convert_successfully()
 		{
 			// Arrange
@@ -409,7 +411,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			actualValue.Should().Be(expectedValue);
 		}
 
-		[Test]
+		[Fact]
 		public void ToObjectStatic_should_fail_to_convert_with_error()
 		{
 			// Arrange
@@ -426,7 +428,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 
 		// ---------------------------------------------------------------------------------------------
 
-		[Test]
+		[Fact]
 		public void ToValues_should_convert_successfully_for_Boolean()
 		{
 			// Arrange
@@ -443,7 +445,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			actualValues.Should().BeEquivalentTo(expectedValues);
 		}
 
-		[Test]
+		[Fact]
 		public void ToValues_should_convert_successfully_for_Int16()
 		{
 			// Arrange
@@ -460,7 +462,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			actualValues.Should().BeEquivalentTo(expectedValues);
 		}
 
-		[Test]
+		[Fact]
 		public void ToValues_should_convert_successfully_for_Int32()
 		{
 			// Arrange
@@ -477,7 +479,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			actualValues.Should().BeEquivalentTo(expectedValues);
 		}
 
-		[Test]
+		[Fact]
 		public void ToValues_should_convert_successfully_for_Int64()
 		{
 			// Arrange
@@ -494,7 +496,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			actualValues.Should().BeEquivalentTo(expectedValues);
 		}
 
-		[Test]
+		[Fact]
 		public void ToValues_should_convert_successfully_for_DateTime()
 		{
 			// Arrange
@@ -519,7 +521,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			actualValues.Should().BeEquivalentTo(expectedValues);
 		}
 
-		[Test]
+		[Fact]
 		public void ToValues_should_convert_successfully_for_Single()
 		{
 			// Arrange
@@ -536,7 +538,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			actualValues.Should().BeEquivalentTo(expectedValues);
 		}
 
-		[Test]
+		[Fact]
 		public void ToValues_should_convert_successfully_for_Double()
 		{
 			// Arrange
@@ -553,7 +555,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			actualValues.Should().BeEquivalentTo(expectedValues);
 		}
 
-		[Test]
+		[Fact]
 		public void ToValues_should_convert_successfully_for_Decimal()
 		{
 			// Arrange
@@ -570,7 +572,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			actualValues.Should().BeEquivalentTo(expectedValues);
 		}
 
-		[Test]
+		[Fact]
 		public void ToValues_should_convert_successfully_for_String()
 		{
 			// Arrange
@@ -587,7 +589,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			actualValues.Should().BeEquivalentTo(expectedValues);
 		}
 
-		[Test]
+		[Fact]
 		public void ToValues_should_return_with_empty_list_when_no_data()
 		{
 			// Arrange

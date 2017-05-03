@@ -10,3 +10,7 @@
 # ignore Pickles documentation
 
 **/Pickles
+
+# keys
+
+**/Keys

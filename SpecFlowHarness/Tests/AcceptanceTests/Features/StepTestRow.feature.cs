@@ -17,40 +17,39 @@ namespace PreservedMoose.SpecFlowHarness.AcceptanceTests.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Test the step flow code")]
-    [NUnit.Framework.CategoryAttribute("Core")]
-    public partial class TestTheStepFlowCodeFeature
+    [Xunit.TraitAttribute("Category", "Core")]
+    public partial class TestTheStepFlowCodeFeature : Xunit.IClassFixture<TestTheStepFlowCodeFeature.FixtureData>, System.IDisposable
     {
         
-        private TechTalk.SpecFlow.ITestRunner testRunner;
+        private static TechTalk.SpecFlow.ITestRunner testRunner;
         
 #line 1 "StepTestRow.feature"
 #line hidden
         
-        [NUnit.Framework.TestFixtureSetUpAttribute()]
-        public virtual void FeatureSetup()
+        public TestTheStepFlowCodeFeature()
+        {
+            this.TestInitialize();
+        }
+        
+        public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Test the step flow code", "\tAs a developer\r\n\tI want to be able to create tables\r\n\tIn order to pass data easi" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "Test the step flow code", "\tAs a developer\r\n\tI want to be able to create tables\r\n\tIn order to pass data easi" +
                     "ly to the code", ProgrammingLanguage.CSharp, new string[] {
                         "Core"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
-        [NUnit.Framework.TestFixtureTearDownAttribute()]
-        public virtual void FeatureTearDown()
+        public static void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
         
-        [NUnit.Framework.SetUpAttribute()]
         public virtual void TestInitialize()
         {
         }
         
-        [NUnit.Framework.TearDownAttribute()]
         public virtual void ScenarioTearDown()
         {
             testRunner.OnScenarioEnd();
@@ -76,9 +75,19 @@ namespace PreservedMoose.SpecFlowHarness.AcceptanceTests.Features
 #line hidden
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("01 - Test parsing of DateTime and some objects (transforms)")]
-        [NUnit.Framework.TestCaseAttribute("2016-12-27 10:00", new string[0])]
+        public virtual void SetFixture(TestTheStepFlowCodeFeature.FixtureData fixtureData)
+        {
+        }
+        
+        void System.IDisposable.Dispose()
+        {
+            this.ScenarioTearDown();
+        }
+        
+        [Xunit.TheoryAttribute()]
+        [Xunit.TraitAttribute("FeatureTitle", "Test the step flow code")]
+        [Xunit.TraitAttribute("Description", "01 - Test parsing of DateTime and some objects (transforms)")]
+        [Xunit.InlineDataAttribute("2016-12-27 10:00", new string[0])]
         public virtual void _01_TestParsingOfDateTimeAndSomeObjectsTransforms(string dateTimeColumnWithSpaces, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01 - Test parsing of DateTime and some objects (transforms)", exampleTags);
@@ -96,8 +105,9 @@ this.FeatureBackground();
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("02 - Test parsing of comma separated Strings and Enums")]
+        [Xunit.FactAttribute(DisplayName="02 - Test parsing of comma separated Strings and Enums")]
+        [Xunit.TraitAttribute("FeatureTitle", "Test the step flow code")]
+        [Xunit.TraitAttribute("Description", "02 - Test parsing of comma separated Strings and Enums")]
         public virtual void _02_TestParsingOfCommaSeparatedStringsAndEnums()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02 - Test parsing of comma separated Strings and Enums", ((string[])(null)));
@@ -123,8 +133,9 @@ this.FeatureBackground();
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("03 - Test for invalid column names (that do not exist on the class)")]
+        [Xunit.FactAttribute(DisplayName="03 - Test for invalid column names (that do not exist on the class)")]
+        [Xunit.TraitAttribute("FeatureTitle", "Test the step flow code")]
+        [Xunit.TraitAttribute("Description", "03 - Test for invalid column names (that do not exist on the class)")]
         public virtual void _03_TestForInvalidColumnNamesThatDoNotExistOnTheClass()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03 - Test for invalid column names (that do not exist on the class)", ((string[])(null)));
@@ -149,8 +160,9 @@ this.FeatureBackground();
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("04 - Test that nullable columns are not allowed")]
+        [Xunit.FactAttribute(DisplayName="04 - Test that nullable columns are not allowed")]
+        [Xunit.TraitAttribute("FeatureTitle", "Test the step flow code")]
+        [Xunit.TraitAttribute("Description", "04 - Test that nullable columns are not allowed")]
         public virtual void _04_TestThatNullableColumnsAreNotAllowed()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04 - Test that nullable columns are not allowed", ((string[])(null)));
@@ -173,8 +185,9 @@ this.FeatureBackground();
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("05 - Try to use default values (single value per type)")]
+        [Xunit.FactAttribute(DisplayName="05 - Try to use default values (single value per type)")]
+        [Xunit.TraitAttribute("FeatureTitle", "Test the step flow code")]
+        [Xunit.TraitAttribute("Description", "05 - Try to use default values (single value per type)")]
         public virtual void _05_TryToUseDefaultValuesSingleValuePerType()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05 - Try to use default values (single value per type)", ((string[])(null)));
@@ -221,8 +234,9 @@ this.FeatureBackground();
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("06 - Try to use default values (multiple values per type)")]
+        [Xunit.FactAttribute(DisplayName="06 - Try to use default values (multiple values per type)")]
+        [Xunit.TraitAttribute("FeatureTitle", "Test the step flow code")]
+        [Xunit.TraitAttribute("Description", "06 - Try to use default values (multiple values per type)")]
         public virtual void _06_TryToUseDefaultValuesMultipleValuesPerType()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("06 - Try to use default values (multiple values per type)", ((string[])(null)));
@@ -302,8 +316,9 @@ this.FeatureBackground();
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("07 - Try to pass all types with mixed values (single value per type)")]
+        [Xunit.FactAttribute(DisplayName="07 - Try to pass all types with mixed values (single value per type)")]
+        [Xunit.TraitAttribute("FeatureTitle", "Test the step flow code")]
+        [Xunit.TraitAttribute("Description", "07 - Try to pass all types with mixed values (single value per type)")]
         public virtual void _07_TryToPassAllTypesWithMixedValuesSingleValuePerType()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("07 - Try to pass all types with mixed values (single value per type)", ((string[])(null)));
@@ -442,8 +457,9 @@ this.FeatureBackground();
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("08 - Try to pass all types with mixed values (multiple values per type)")]
+        [Xunit.FactAttribute(DisplayName="08 - Try to pass all types with mixed values (multiple values per type)")]
+        [Xunit.TraitAttribute("FeatureTitle", "Test the step flow code")]
+        [Xunit.TraitAttribute("Description", "08 - Try to pass all types with mixed values (multiple values per type)")]
         public virtual void _08_TryToPassAllTypesWithMixedValuesMultipleValuesPerType()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("08 - Try to pass all types with mixed values (multiple values per type)", ((string[])(null)));
@@ -493,8 +509,9 @@ this.FeatureBackground();
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("09 - Try to pass all types with mixed values (single value per type)")]
+        [Xunit.FactAttribute(DisplayName="09 - Try to pass all types with mixed values (single value per type)")]
+        [Xunit.TraitAttribute("FeatureTitle", "Test the step flow code")]
+        [Xunit.TraitAttribute("Description", "09 - Try to pass all types with mixed values (single value per type)")]
         public virtual void _09_TryToPassAllTypesWithMixedValuesSingleValuePerType()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("09 - Try to pass all types with mixed values (single value per type)", ((string[])(null)));
@@ -652,8 +669,9 @@ this.FeatureBackground();
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("10 - Try to pass all types with mixed values (multiple values per type)")]
+        [Xunit.FactAttribute(DisplayName="10 - Try to pass all types with mixed values (multiple values per type)")]
+        [Xunit.TraitAttribute("FeatureTitle", "Test the step flow code")]
+        [Xunit.TraitAttribute("Description", "10 - Try to pass all types with mixed values (multiple values per type)")]
         public virtual void _10_TryToPassAllTypesWithMixedValuesMultipleValuesPerType()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("10 - Try to pass all types with mixed values (multiple values per type)", ((string[])(null)));
@@ -811,8 +829,9 @@ this.FeatureBackground();
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("11 - Error handling on a large table is clearer in new code")]
+        [Xunit.FactAttribute(DisplayName="11 - Error handling on a large table is clearer in new code")]
+        [Xunit.TraitAttribute("FeatureTitle", "Test the step flow code")]
+        [Xunit.TraitAttribute("Description", "11 - Error handling on a large table is clearer in new code")]
         public virtual void _11_ErrorHandlingOnALargeTableIsClearerInNewCode()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("11 - Error handling on a large table is clearer in new code", ((string[])(null)));
@@ -1808,8 +1827,9 @@ this.FeatureBackground();
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("12 - Test passing of data for same scenario into different step classes")]
+        [Xunit.FactAttribute(DisplayName="12 - Test passing of data for same scenario into different step classes")]
+        [Xunit.TraitAttribute("FeatureTitle", "Test the step flow code")]
+        [Xunit.TraitAttribute("Description", "12 - Test passing of data for same scenario into different step classes")]
         public virtual void _12_TestPassingOfDataForSameScenarioIntoDifferentStepClasses()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("12 - Test passing of data for same scenario into different step classes", ((string[])(null)));
@@ -1942,6 +1962,22 @@ this.FeatureBackground();
  testRunner.Then("we have these values:", ((string)(null)), table22, "Then ");
 #line hidden
             this.ScenarioCleanup();
+        }
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
+        [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        public class FixtureData : System.IDisposable
+        {
+            
+            public FixtureData()
+            {
+                TestTheStepFlowCodeFeature.FeatureSetup();
+            }
+            
+            void System.IDisposable.Dispose()
+            {
+                TestTheStepFlowCodeFeature.FeatureTearDown();
+            }
         }
     }
 }

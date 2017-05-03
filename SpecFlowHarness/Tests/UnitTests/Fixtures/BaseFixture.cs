@@ -5,8 +5,8 @@ using System.Reflection;
 using System.Web.Mvc;
 using FluentAssertions;
 using Moq;
-using NUnit.Framework;
 using TinyIoC;
+using Xunit;
 
 namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 {
@@ -26,46 +26,6 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 		protected BaseFixture()
 		{
 			BaseContainer = new TinyIoCContainer();
-		}
-
-		// ---------------------------------------------------------------------------------------------
-
-		/// <summary>
-		/// This method runs only one time in the begin, before the FIRST Test
-		/// Override this to setup common things that will be used by the whole Fixture
-		/// </summary>
-		[OneTimeSetUp]
-		public virtual void OneTimeSetUp()
-		{
-		}
-
-		/// <summary>
-		/// This method runs before EACH test
-		/// Override this method to setup/renew things that will be used/done for the Test that will start
-		/// </summary>
-		[SetUp]
-		public virtual void AllTestsSetup()
-		{
-		}
-
-		/// <summary>
-		/// This method runs only one time in the end, after the LAST Test
-		/// Override this to wrap up the Fixture file and clear anything that might have been
-		/// left behind for the Fixture
-		/// </summary>
-		[OneTimeTearDown]
-		public virtual void OneTimeTearDown()
-		{
-		}
-
-		/// <summary>
-		/// This method will run after EACH test
-		/// Override this to clear wrap up the Test and clear anything that might have been
-		/// left behind by the Test that just finished
-		/// </summary>
-		[TearDown]
-		public virtual void AllTestsTearDown()
-		{
 		}
 
 		// ---------------------------------------------------------------------------------------------
