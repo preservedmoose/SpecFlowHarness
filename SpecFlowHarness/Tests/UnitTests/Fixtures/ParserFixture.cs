@@ -6,6 +6,7 @@ using Xunit;
 namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 {
 	// ReSharper disable InconsistentNaming
+	[Trait("UnitTests", "ParserFixture")]
 	public class ParserFixture : BaseFixture, IDisposable
 	{
 		public ParserFixture()

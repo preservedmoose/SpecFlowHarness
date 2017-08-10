@@ -67,7 +67,7 @@ namespace PreservedMoose.SpecFlowHarness.AcceptanceTests.Steps
 
 			// compare our two sets
 			expectedRows.CompareTo(actualRows);
-			expectedRows.OrderedCompareTo(actualRows);
+			expectedRows.CompareTo(actualRows, ComparisonType.EqualOrdered);
 		}
 
 		[Then(@"we have \(old\) large test results:")]
@@ -101,7 +101,7 @@ namespace PreservedMoose.SpecFlowHarness.AcceptanceTests.Steps
 
 			// call the comparator to compare our two sets
 			expectedRows.CompareTo(actualRows);
-			expectedRows.OrderedCompareTo(actualRows);
+			expectedRows.CompareTo(actualRows, ComparisonType.EqualOrdered);
 		}
 
 		[Then(@"we have \(new\) test results:")]
@@ -115,7 +115,7 @@ namespace PreservedMoose.SpecFlowHarness.AcceptanceTests.Steps
 
 			// call the comparator to compare our two sets
 			expectedRows.CompareTo(actualRows);
-			expectedRows.OrderedCompareTo(actualRows);
+			expectedRows.CompareTo(actualRows, ComparisonType.EqualOrdered);
 		}
 
 		[Then(@"we have \(new\) large test results:")]
@@ -129,7 +129,7 @@ namespace PreservedMoose.SpecFlowHarness.AcceptanceTests.Steps
 
 			// call the comparator to compare our two sets
 			expectedRows.CompareTo(actualRows);
-			expectedRows.OrderedCompareTo(actualRows);
+			expectedRows.CompareTo(actualRows, ComparisonType.EqualOrdered);
 		}
 
 		#endregion

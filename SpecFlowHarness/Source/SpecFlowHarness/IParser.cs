@@ -15,7 +15,8 @@ namespace PreservedMoose.SpecFlowHarness
 		/// </summary>
 		/// <param name="enumType"></param>
 		/// <returns></returns>
-		string ReadEnumDescription<TEnum>(TEnum enumType) where TEnum : struct;
+		string ReadEnumDescription<TEnum>(TEnum enumType)
+			where TEnum : struct;
 
 		// ----------------------------------------------------------------------------------------
 
@@ -82,7 +83,8 @@ namespace PreservedMoose.SpecFlowHarness
 		/// <param name="fromValue">what we wish to parse</param>
 		/// <param name="parseError">the error string returned if the conversion failed</param>
 		/// <returns></returns>
-		TEnum ParseEnum<TEnum>(string column, string fromValue, ref string parseError) where TEnum : struct;
+		TEnum ParseEnum<TEnum>(string column, string fromValue, ref string parseError)
+			where TEnum : struct;
 
 		/// <summary>
 		/// helper to parse object values
@@ -91,7 +93,8 @@ namespace PreservedMoose.SpecFlowHarness
 		/// <param name="fromValue"></param>
 		/// <param name="parseError"></param>
 		/// <returns></returns>
-		TObject ParseObject<TObject>(string column, string fromValue, ref string parseError) where TObject : IConvertibleFromString<TObject>, new();
+		TObject ParseObject<TObject>(string column, string fromValue, ref string parseError)
+			where TObject : IConvertibleFromString<TObject>, new();
 
 		/// <summary>
 		/// helper to parse object values
@@ -100,7 +103,8 @@ namespace PreservedMoose.SpecFlowHarness
 		/// <param name="fromValue"></param>
 		/// <param name="parseError"></param>
 		/// <returns></returns>
-		TObject ParseObjectStatic<TObject>(string column, string fromValue, ref string parseError) where TObject : IConvertibleStaticFromString<TObject>, new();
+		TObject ParseObjectStatic<TObject>(string column, string fromValue, ref string parseError)
+			where TObject : IConvertibleStaticFromString<TObject>, new();
 
 		// ----------------------------------------------------------------------------------------
 
@@ -152,7 +156,8 @@ namespace PreservedMoose.SpecFlowHarness
 		/// <param name="fromValue">The s value.</param>
 		/// <param name="toValue">The return value.</param>
 		/// <returns></returns>
-		bool TryParseValue<TValue>(string fromValue, out TValue toValue); //where TValue : ValueType
+		bool TryParseValue<TValue>(string fromValue, out TValue toValue);
+			//where TValue : ValueType
 
 		/// <summary>
 		/// Tries the parse enum.
@@ -161,7 +166,8 @@ namespace PreservedMoose.SpecFlowHarness
 		/// <param name="fromValue">From value.</param>
 		/// <param name="toValue">To value.</param>
 		/// <returns></returns>
-		bool TryParseEnum<TEnum>(string fromValue, out TEnum toValue) where TEnum : struct;
+		bool TryParseEnum<TEnum>(string fromValue, out TEnum toValue)
+			where TEnum : struct;
 	}
 
 	// ----------------------------------------------------------------------------------------

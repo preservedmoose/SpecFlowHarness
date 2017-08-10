@@ -19,7 +19,8 @@ namespace PreservedMoose.SpecFlowHarness
 
 		// ----------------------------------------------------------------------------------------
 
-		public TValue ToValue<TValue>(String fromValue) //where TValue : ValueType
+		public TValue ToValue<TValue>(String fromValue)
+			//where TValue : ValueType
 		{
 			var type = typeof(TValue);
 			dynamic toValue = default(TValue);
@@ -75,7 +76,8 @@ namespace PreservedMoose.SpecFlowHarness
 			return toValue;
 		}
 
-		public TEnum ToEnum<TEnum>(String fromValue) where TEnum : struct
+		public TEnum ToEnum<TEnum>(String fromValue)
+			where TEnum : struct
 		{
 			var type = typeof(TEnum);
 			var toEnum = default(TEnum);
@@ -105,7 +107,8 @@ namespace PreservedMoose.SpecFlowHarness
 			return toEnum;
 		}
 
-		public TObject ToObject<TObject>(String fromValue) where TObject : IConvertibleFromString<TObject>, new()
+		public TObject ToObject<TObject>(String fromValue)
+			where TObject : IConvertibleFromString<TObject>, new()
 		{
 			var type = typeof(TObject);
 			var toObject = new TObject();
@@ -122,7 +125,8 @@ namespace PreservedMoose.SpecFlowHarness
 			return toObject;
 		}
 
-		public TObject ToObjectStatic<TObject>(String fromValue) where TObject : IConvertibleStaticFromString<TObject>, new()
+		public TObject ToObjectStatic<TObject>(String fromValue)
+			where TObject : IConvertibleStaticFromString<TObject>, new()
 		{
 			// for calls that return static objects
 			// we must create an instance on which to call the method
@@ -164,7 +168,8 @@ namespace PreservedMoose.SpecFlowHarness
 
 		// ----------------------------------------------------------------------------------------
 
-		public IReadOnlyList<TValue> ToValues<TValue>(String fromValues) //where TValue : ValueType
+		public IReadOnlyList<TValue> ToValues<TValue>(String fromValues)
+			//where TValue : ValueType
 		{
 			var toValues = new List<TValue>();
 
@@ -180,7 +185,8 @@ namespace PreservedMoose.SpecFlowHarness
 			return toValues;
 		}
 
-		public IReadOnlyList<TEnum> ToEnums<TEnum>(String fromValues) where TEnum : struct
+		public IReadOnlyList<TEnum> ToEnums<TEnum>(String fromValues)
+			where TEnum : struct
 		{
 			var toEnums = new List<TEnum>();
 
@@ -196,7 +202,8 @@ namespace PreservedMoose.SpecFlowHarness
 			return toEnums;
 		}
 
-		public IReadOnlyList<TObject> ToObjects<TObject>(String fromValues) where TObject : IConvertibleFromString<TObject>, new()
+		public IReadOnlyList<TObject> ToObjects<TObject>(String fromValues)
+			where TObject : IConvertibleFromString<TObject>, new()
 		{
 			var toObjects = new List<TObject>();
 
@@ -212,7 +219,8 @@ namespace PreservedMoose.SpecFlowHarness
 			return toObjects;
 		}
 
-		public IReadOnlyList<TObject> ToObjectsStatic<TObject>(String fromValues) where TObject : IConvertibleStaticFromString<TObject>, new()
+		public IReadOnlyList<TObject> ToObjectsStatic<TObject>(String fromValues)
+			where TObject : IConvertibleStaticFromString<TObject>, new()
 		{
 			var toObjects = new List<TObject>();
 

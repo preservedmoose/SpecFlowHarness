@@ -141,6 +141,12 @@
   <data name="Parser_InvalidValue" xml:space="preserve">
     <value>Column '{0}' has invalid value '{1}' for type {2}.</value>
   </data>
+  <data name="Parser_No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Parser_Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
   <data name="StepRowExtensions_CompareActualResults" xml:space="preserve">
     <value>Actual results:</value>
   </data>
@@ -159,6 +165,9 @@
   <data name="StepRowExtensions_CompareSecondCollectionUndefined" xml:space="preserve">
     <value>The second collection is undefined.</value>
   </data>
+  <data name="StepRowExtensions_ComparisonTypeUnsupported" xml:space="preserve">
+    <value>The comparison method specified is unsupported.</value>
+  </data>
   <data name="StepRowExtensions_TableParsingErrorMessage" xml:space="preserve">
     <value>There were errors encountered parsing the table rows for this class:</value>
   </data>
@@ -170,6 +179,9 @@
   </data>
   <data name="StepRow_EqualsOverrideNullMessage" xml:space="preserve">
     <value>The row has not been provided or is of the wrong type.</value>
+  </data>
+  <data name="StepRow_ProvidedTypeMustBeValueType" xml:space="preserve">
+    <value>The provided type {0} must be a value type.</value>
   </data>
   <data name="StepRow_ValidationFieldNotSet" xml:space="preserve">
     <value>The {1} for '{0}' was not set.</value>

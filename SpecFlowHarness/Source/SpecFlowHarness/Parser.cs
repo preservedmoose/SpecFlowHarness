@@ -8,7 +8,8 @@ namespace PreservedMoose.SpecFlowHarness
 	{
 		// ----------------------------------------------------------------------------------------
 
-		public string ReadEnumDescription<TEnum>(TEnum enumType) where TEnum : struct
+		public string ReadEnumDescription<TEnum>(TEnum enumType)
+			where TEnum : struct
 		{
 			var fieldInfo = enumType.GetType().GetField(enumType.ToString());
 			var attributes = (DescriptionAttribute[])fieldInfo.GetCustomAttributes(typeof(DescriptionAttribute), false);
@@ -99,7 +100,8 @@ namespace PreservedMoose.SpecFlowHarness
 			return value;
 		}
 
-		public TEnum ParseEnum<TEnum>(string column, string fromValue, ref string parseError) where TEnum : struct
+		public TEnum ParseEnum<TEnum>(string column, string fromValue, ref string parseError)
+			where TEnum : struct
 		{
 			TEnum value;
 			var isSuccess = TryParseEnum(fromValue, out value);
@@ -110,7 +112,8 @@ namespace PreservedMoose.SpecFlowHarness
 			return value;
 		}
 
-		public TObject ParseObject<TObject>(string column, string fromValue, ref string parseError) where TObject : IConvertibleFromString<TObject>, new()
+		public TObject ParseObject<TObject>(string column, string fromValue, ref string parseError)
+			where TObject : IConvertibleFromString<TObject>, new()
 		{
 			var value = new TObject();
 			if (value.TryParse(fromValue)) return value;
@@ -119,7 +122,8 @@ namespace PreservedMoose.SpecFlowHarness
 			return value;
 		}
 
-		public TObject ParseObjectStatic<TObject>(string column, string fromValue, ref string parseError) where TObject : IConvertibleStaticFromString<TObject>, new()
+		public TObject ParseObjectStatic<TObject>(string column, string fromValue, ref string parseError)
+			where TObject : IConvertibleStaticFromString<TObject>, new()
 		{
 			// for calls that return static objects
 			// we must create an instance on which to call the method
@@ -141,10 +145,10 @@ namespace PreservedMoose.SpecFlowHarness
 			// allow yes/no values
 			if (!isSuccess)
 			{
-				if (0 == string.Compare(fromValue, "no", true, CultureInfo.InvariantCulture) ||
-					0 == string.Compare(fromValue, "yes", true, CultureInfo.InvariantCulture))
+				if (0 == string.Compare(fromValue, Resources.Parser_No, true, CultureInfo.InvariantCulture) ||
+					0 == string.Compare(fromValue, Resources.Parser_Yes, true, CultureInfo.InvariantCulture))
 				{
-					toValue = (0 == string.Compare(fromValue, "yes", true, CultureInfo.InvariantCulture));
+					toValue = (0 == string.Compare(fromValue, Resources.Parser_Yes, true, CultureInfo.InvariantCulture));
 					isSuccess = true;
 				}
 			}
@@ -204,7 +208,8 @@ namespace PreservedMoose.SpecFlowHarness
 			return isSuccess;
 		}
 
-		public bool TryParseEnum<TEnum>(string fromValue, out TEnum toValue) where TEnum : struct
+		public bool TryParseEnum<TEnum>(string fromValue, out TEnum toValue)
+			where TEnum : struct
 		{
 			var sValueNoSpaces = fromValue.Replace(Constants.Space, string.Empty);
 

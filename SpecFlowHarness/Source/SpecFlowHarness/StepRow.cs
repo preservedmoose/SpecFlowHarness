@@ -9,7 +9,8 @@ using TechTalk.SpecFlow;
 
 namespace PreservedMoose.SpecFlowHarness
 {
-	public abstract class StepRow<TStepRow> : BaseStepRow where TStepRow : BaseStepRow
+	public abstract class StepRow<TStepRow> : BaseStepRow
+		where TStepRow : BaseStepRow
 	{
 		private const string PropertyParseErrors = nameof(ParseErrors);
 		private const string PropertyUsedProperties = nameof(UsedProperties);
@@ -138,7 +139,7 @@ namespace PreservedMoose.SpecFlowHarness
 		// ----------------------------------------------------------------------------------------
 
 		/// <summary>
-		/// 
+		/// determines whether or not the available property was actually used
 		/// </summary>
 		/// <typeparam name="TProperty">property type</typeparam>
 		/// <param name="expression">a lambda expression of the type s => s.PropertyName</param>
@@ -161,108 +162,46 @@ namespace PreservedMoose.SpecFlowHarness
 		// ----------------------------------------------------------------------------------------
 
 		/// <summary>
-		/// validates that the specified int has a valid value (not 0)
+		/// validates that the specified TValue has a valid value (not the default)
+		/// for strings, where the default is null, there is an additional check against empty
 		/// </summary>
-		/// <param name="value">the value to be validated against 0</param>
+		/// <typeparam name="TValue">value type</typeparam>
+		/// <param name="value">the value to be validated against the default</param>
 		/// <param name="expression">a lambda expression of the type s => s.PropertyName</param>
-		protected void Validate_Int32(int value, Expression<Func<TStepRow, int>> expression)
+		protected void ValidateValue<TValue>(TValue value, Expression<Func<TStepRow, TValue>> expression)
+		//where TValue : ValueType
 		{
-			if (0 != value) return;
+			var propertyType = typeof(TValue);
 
-			var sPropertyName = string.Empty;
-			var memberExpression = expression.Body as MemberExpression;
-
-			if (memberExpression != null &&
-				memberExpression.Member.MemberType == MemberTypes.Property)
+			if (!SimpleTypes.Contains(propertyType))
 			{
-				sPropertyName = memberExpression.Member.Name;
+				throw new StepRowException(string.Format(Resources.StepRow_ProvidedTypeMustBeValueType, propertyType));
 			}
-			var sParseError = string.Format(Resources.StepRow_ValidationFieldNotSet, sPropertyName, typeof(int));
-			ParseErrors.Add(sParseError);
+
+			if (value is String)
+			{
+				var stringValue = value as string;
+				if (!string.IsNullOrWhiteSpace(stringValue)) return;
+			}
+			else
+			{
+				if (!default(TValue).Equals(value)) return;
+			}
+			AddValidationError(value, expression);
 		}
 
 		/// <summary>
-		/// validates that the specified long has a valid value (not 0)
+		/// validates that the specified TEnum has a valid value (not the default)
 		/// </summary>
-		/// <param name="value">the value to be validated against 0</param>
+		/// <typeparam name="TEnum">enum type</typeparam>
+		/// <param name="value">the value to be validated against the default</param>
 		/// <param name="expression">a lambda expression of the type s => s.PropertyName</param>
-		protected void Validate_Int64(long value, Expression<Func<TStepRow, long>> expression)
+		protected void ValidateEnum<TEnum>(TEnum value, Expression<Func<TStepRow, TEnum>> expression)
+			where TEnum : struct
 		{
-			if (0 != value) return;
+			if (!default(TEnum).Equals(value)) return;
 
-			var sPropertyName = string.Empty;
-			var memberExpression = expression.Body as MemberExpression;
-
-			if (memberExpression != null &&
-				memberExpression.Member.MemberType == MemberTypes.Property)
-			{
-				sPropertyName = memberExpression.Member.Name;
-			}
-			var sParseError = string.Format("The {1} for '{0}' was not set.", sPropertyName, typeof(long));
-			ParseErrors.Add(sParseError);
-		}
-
-		/// <summary>
-		/// validates that the specified decimal has a valid value (not 0)
-		/// </summary>
-		/// <param name="value">the value to be validated against 0</param>
-		/// <param name="expression">a lambda expression of the type s => s.PropertyName</param>
-		protected void Validate_Decimal(decimal value, Expression<Func<TStepRow, decimal>> expression)
-		{
-			if (0 != value) return;
-
-			var sPropertyName = string.Empty;
-			var memberExpression = expression.Body as MemberExpression;
-
-			if (memberExpression != null &&
-				memberExpression.Member.MemberType == MemberTypes.Property)
-			{
-				sPropertyName = memberExpression.Member.Name;
-			}
-			var sParseError = string.Format("The {1} for '{0}' was not set.", sPropertyName, typeof(decimal));
-			ParseErrors.Add(sParseError);
-		}
-
-		/// <summary>
-		/// validates that the specified Date has a valid value (not DateTime.MinValue)
-		/// </summary>
-		/// <param name="value">the value to be validated against DateTime.MinValue</param>
-		/// <param name="expression">a lambda expression of the type s => s.PropertyName</param>
-		protected void Validate_DateTime(DateTime value, Expression<Func<TStepRow, DateTime>> expression)
-		{
-			if (DateTime.MinValue != value) return;
-
-			var sPropertyName = string.Empty;
-			var memberExpression = expression.Body as MemberExpression;
-
-			if (memberExpression != null &&
-				memberExpression.Member.MemberType == MemberTypes.Property)
-			{
-				sPropertyName = memberExpression.Member.Name;
-			}
-			var sParseError = string.Format("The {1} for '{0}' was not set.", sPropertyName, typeof(DateTime));
-			ParseErrors.Add(sParseError);
-		}
-
-		/// <summary>
-		/// validates that the specified Date has a valid value (not DateTime.MinValue)
-		/// </summary>
-		/// <param name="value">the value to be validated against DateTime.MinValue</param>
-		/// <param name="expression">a lambda expression of the type s => s.PropertyName</param>
-		protected void Validate_String(string value, Expression<Func<TStepRow, string>> expression)
-		{
-			if (!string.IsNullOrWhiteSpace(value)) return;
-
-			var sPropertyName = string.Empty;
-			var memberExpression = expression.Body as MemberExpression;
-
-			if (memberExpression != null &&
-				memberExpression.Member.MemberType == MemberTypes.Property)
-			{
-				sPropertyName = memberExpression.Member.Name;
-			}
-			var sParseError = string.Format("The {1} for '{0}' was not set.", sPropertyName, typeof(string));
-			ParseErrors.Add(sParseError);
+			AddValidationError(value, expression);
 		}
 
 		// ----------------------------------------------------------------------------------------
@@ -411,6 +350,20 @@ namespace PreservedMoose.SpecFlowHarness
 				sParseError = (string)parameters[2];
 			}
 			return result;
+		}
+
+		private void AddValidationError<TValue>(TValue value, Expression<Func<TStepRow, TValue>> expression)
+		{
+			var sPropertyName = string.Empty;
+			var memberExpression = expression.Body as MemberExpression;
+
+			if (memberExpression != null &&
+				memberExpression.Member.MemberType == MemberTypes.Property)
+			{
+				sPropertyName = memberExpression.Member.Name;
+			}
+			var sParseError = string.Format(Resources.StepRow_ValidationFieldNotSet, sPropertyName, typeof(TValue));
+			ParseErrors.Add(sParseError);
 		}
 
 		// ----------------------------------------------------------------------------------------

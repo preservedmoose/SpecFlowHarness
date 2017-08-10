@@ -7,6 +7,7 @@ using Xunit;
 namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 {
 	// ReSharper disable InconsistentNaming
+	[Trait("UnitTests", "ConverterFixture")]
 	public class ConverterFixture : BaseFixture, IDisposable
 	{
 		public ConverterFixture()

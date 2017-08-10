@@ -123,7 +123,8 @@ namespace PreservedMoose.SpecFlowHarness
 		/// </summary>
 		/// <typeparam name="TStepRow">the class to which we wish to map</typeparam>
 		// ReSharper disable once MemberCanBeMadeStatic.Local
-		protected void CheckForNullableTypesOnClass<TStepRow>() where TStepRow : BaseStepRow
+		protected void CheckForNullableTypesOnClass<TStepRow>()
+			where TStepRow : BaseStepRow
 		{
 			var type = typeof(TStepRow);
 			var baseType = typeof(StepRow<TStepRow>);

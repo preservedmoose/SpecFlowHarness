@@ -55,6 +55,7 @@
     <Compile Include="BaseStepRow.cs" />
     <Compile Include="StepRowAssertion.cs" />
     <Compile Include="StepRowAssertionFactory.cs" />
+    <Compile Include="ComparisonType.cs" />
     <Compile Include="StepRowException.cs" />
     <Compile Include="StepRowExtensions.cs" />
     <Compile Include="IConvertibleFromString.cs" />

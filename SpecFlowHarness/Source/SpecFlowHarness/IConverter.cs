@@ -24,7 +24,8 @@ namespace PreservedMoose.SpecFlowHarness
 		/// <typeparam name="TValue">the value type</typeparam>
 		/// <param name="fromValue"></param>
 		/// <returns></returns>
-		TValue ToValue<TValue>(String fromValue); //where TValue : ValueType
+		TValue ToValue<TValue>(String fromValue);
+			//where TValue : ValueType
 
 		/// <summary>
 		/// helper to parse Enum types
@@ -32,7 +33,8 @@ namespace PreservedMoose.SpecFlowHarness
 		/// <typeparam name="TEnum">the enum type</typeparam>
 		/// <param name="fromValue">what we wish to parse</param>
 		/// <returns></returns>
-		TEnum ToEnum<TEnum>(String fromValue) where TEnum : struct;
+		TEnum ToEnum<TEnum>(String fromValue)
+			where TEnum : struct;
 
 		/// <summary>
 		/// helper to parse object values
@@ -40,7 +42,8 @@ namespace PreservedMoose.SpecFlowHarness
 		/// <typeparam name="TObject">the object type</typeparam>
 		/// <param name="fromValue"></param>
 		/// <returns></returns>
-		TObject ToObject<TObject>(String fromValue) where TObject : IConvertibleFromString<TObject>, new();
+		TObject ToObject<TObject>(String fromValue)
+			where TObject : IConvertibleFromString<TObject>, new();
 
 		/// <summary>
 		/// helper to parse static object values
@@ -48,7 +51,8 @@ namespace PreservedMoose.SpecFlowHarness
 		/// <typeparam name="TObject">the static object type</typeparam>
 		/// <param name="fromValue"></param>
 		/// <returns></returns>
-		TObject ToObjectStatic<TObject>(String fromValue) where TObject : IConvertibleStaticFromString<TObject>, new();
+		TObject ToObjectStatic<TObject>(String fromValue)
+			where TObject : IConvertibleStaticFromString<TObject>, new();
 
 		// ----------------------------------------------------------------------------------------
 
@@ -69,7 +73,8 @@ namespace PreservedMoose.SpecFlowHarness
 		/// <typeparam name="TValue">the value type</typeparam>
 		/// <param name="fromValues">a comma separated list that we wish to parse</param>
 		/// <returns></returns>
-		IReadOnlyList<TValue> ToValues<TValue>(String fromValues); //where TValue : ValueType
+		IReadOnlyList<TValue> ToValues<TValue>(String fromValues);
+			//where TValue : ValueType
 
 		/// <summary>
 		/// helper to parse Enum types
@@ -77,7 +82,8 @@ namespace PreservedMoose.SpecFlowHarness
 		/// <typeparam name="TEnum">the enum type</typeparam>
 		/// <param name="fromValues">a comma separated list that we wish to parse</param>
 		/// <returns></returns>
-		IReadOnlyList<TEnum> ToEnums<TEnum>(String fromValues) where TEnum : struct;
+		IReadOnlyList<TEnum> ToEnums<TEnum>(String fromValues)
+			where TEnum : struct;
 
 		/// <summary>
 		/// helper to parse object types
@@ -85,7 +91,8 @@ namespace PreservedMoose.SpecFlowHarness
 		/// <typeparam name="TObject">the object type</typeparam>
 		/// <param name="fromValues">a comma separated list that we wish to parse</param>
 		/// <returns></returns>
-		IReadOnlyList<TObject> ToObjects<TObject>(String fromValues) where TObject : IConvertibleFromString<TObject>, new();
+		IReadOnlyList<TObject> ToObjects<TObject>(String fromValues)
+			where TObject : IConvertibleFromString<TObject>, new();
 
 		/// <summary>
 		/// helper to parse static object types
@@ -93,7 +100,8 @@ namespace PreservedMoose.SpecFlowHarness
 		/// <typeparam name="TObject">the static object type</typeparam>
 		/// <param name="fromValues">a comma separated list that we wish to parse</param>
 		/// <returns></returns>
-		IReadOnlyList<TObject> ToObjectsStatic<TObject>(String fromValues) where TObject : IConvertibleStaticFromString<TObject>, new();
+		IReadOnlyList<TObject> ToObjectsStatic<TObject>(String fromValues)
+			where TObject : IConvertibleStaticFromString<TObject>, new();
 
 		// ----------------------------------------------------------------------------------------
 	}

@@ -27,10 +27,9 @@ namespace PreservedMoose.SpecFlowHarness
 		internal static void Validate<TStepRow>(this IReadOnlyCollection<TStepRow> rows)
 			where TStepRow : BaseStepRow
 		{
-			var type = typeof(TStepRow);
+			// perform validation on all rows
 			var hasParseErrors = false;
 
-			// perform validation on all rows
 			foreach (var row in rows)
 			{
 				row.Validate();
@@ -42,7 +41,7 @@ namespace PreservedMoose.SpecFlowHarness
 			var messageBuilder = new StringBuilder();
 
 			messageBuilder.AppendLine(Resources.StepRowExtensions_TableParsingErrorMessage);
-			messageBuilder.AppendLine(type.ToString());
+			messageBuilder.AppendLine(typeof(TStepRow).ToString());
 			messageBuilder.AppendLine();
 
 			foreach (var parseError in rows.SelectMany(row => row.ParseErrors))
@@ -62,22 +61,16 @@ namespace PreservedMoose.SpecFlowHarness
 		/// <typeparam name="TStepRow">The type of the step row.</typeparam>
 		/// <param name="rowsExpected">The rows expected.</param>
 		/// <param name="rowsActual">The rows actual.</param>
-		public static void CompareTo<TStepRow>(this IReadOnlyCollection<TStepRow> rowsExpected, IReadOnlyCollection<TStepRow> rowsActual)
+		/// <param name="comparisonType">The type of comparison.</param>
+		public static void CompareTo<TStepRow>
+		(
+			this IReadOnlyCollection<TStepRow> rowsExpected,
+			IReadOnlyCollection<TStepRow> rowsActual,
+			ComparisonType comparisonType = ComparisonType.Equal
+		)
 			where TStepRow : BaseStepRow, IEquatable<TStepRow>
 		{
-			Compare(rowsExpected, rowsActual, false);
-		}
-
-		/// <summary>
-		/// Compares this collection of the class to the other, taking account of the order.
-		/// </summary>
-		/// <typeparam name="TStepRow">The type of the step row.</typeparam>
-		/// <param name="rowsExpected">The rows expected.</param>
-		/// <param name="rowsActual">The rows actual.</param>
-		public static void OrderedCompareTo<TStepRow>(this IReadOnlyCollection<TStepRow> rowsExpected, IReadOnlyCollection<TStepRow> rowsActual)
-			where TStepRow : BaseStepRow, IEquatable<TStepRow>
-		{
-			Compare(rowsExpected, rowsActual, true);
+			Compare(rowsExpected, rowsActual, comparisonType);
 		}
 
 		// ----------------------------------------------------------------------------------------
@@ -90,23 +83,83 @@ namespace PreservedMoose.SpecFlowHarness
 		/// <param name="isCompareInOrder"></param>
 		/// <param name="isContinueOnError"></param>
 		/// <returns></returns>
-		private static void Compare<TStepRow>(IReadOnlyCollection<TStepRow> rowsExpected, IReadOnlyCollection<TStepRow> rowsActual, bool isCompareInOrder, bool isContinueOnError = false)
+		private static void Compare<TStepRow>
+		(
+			IReadOnlyCollection<TStepRow> rowsExpected,
+			IReadOnlyCollection<TStepRow> rowsActual,
+			ComparisonType comparisonType,
+			bool isContinueOnError = false
+		)
 			where TStepRow : BaseStepRow, IEquatable<TStepRow>
 		{
-			// check the sizes of the two collections then the contents
+			// check the existence of the two collections
 			rowsExpected.Should().NotBeNull(Resources.StepRowExtensions_CompareFirstCollectionUndefined);
 			rowsActual.Should().NotBeNull(Resources.StepRowExtensions_CompareSecondCollectionUndefined);
 
-			var isDifferent = rowsExpected.Count != rowsActual.Count;
+			var isDifferent = false;
 
+			// check the sizes of the two collections
+			switch (comparisonType)
+			{
+				case ComparisonType.Equal:
+				case ComparisonType.EqualOrdered:
+					{
+						isDifferent = rowsExpected.Count != rowsActual.Count;
+						break;
+					}
+				case ComparisonType.Subset:
+					{
+						isDifferent = rowsExpected.Count <= rowsActual.Count;
+						break;
+					}
+				case ComparisonType.Superset:
+					{
+						isDifferent = rowsExpected.Count >= rowsActual.Count;
+						break;
+					}
+				default:
+					{
+						throw new StepRowException(Resources.StepRowExtensions_ComparisonTypeUnsupported);
+					}
+			}
+
+			// check the contents of the two collections
 			if (!isDifferent)
 			{
-				if (isCompareInOrder)
+				if (comparisonType == ComparisonType.Equal ||
+					comparisonType == ComparisonType.Subset ||
+					comparisonType == ComparisonType.Superset)
+				{
+					if (comparisonType == ComparisonType.Equal ||
+						comparisonType == ComparisonType.Superset)
+					{
+						// determine if the expected list has the elements in the actual
+						foreach (var actual in rowsActual)
+						{
+							if (rowsExpected.Contains(actual)) continue;
+							actual.IsDifferent = true;
+							isDifferent = true;
+						}
+					}
+
+					if (comparisonType == ComparisonType.Equal ||
+						comparisonType == ComparisonType.Subset)
+					{
+						// determine if the actual list has the elements in the expected
+						foreach (var expected in rowsExpected)
+						{
+							if (rowsActual.Contains(expected)) continue;
+							expected.IsDifferent = true;
+							isDifferent = true;
+						}
+					}
+				}
+				else if (comparisonType == ComparisonType.EqualOrdered)
 				{
 					var listActual = rowsActual.ToList();
 					var listExpected = rowsExpected.ToList();
 
-					// determine if the first list has the elements in the second
+					// determine if the expected list has the elements in the actual
 					for (var index = 0; index < listActual.Count; ++index)
 					{
 						var actual = listActual[index];
@@ -117,31 +170,13 @@ namespace PreservedMoose.SpecFlowHarness
 						isDifferent = true;
 					}
 
-					// determine if the second list has the elements in the first
+					// determine if the actual list has the elements in the expected
 					for (var index = 0; index < listExpected.Count; ++index)
 					{
 						var actual = listActual[index];
 						var expected = listExpected[index];
 
 						if (actual.Equals(expected)) continue;
-						expected.IsDifferent = true;
-						isDifferent = true;
-					}
-				}
-				else // we do not care about the order
-				{
-					// determine if the first list has the elements in the second
-					foreach (var actual in rowsActual)
-					{
-						if (rowsExpected.Contains(actual)) continue;
-						actual.IsDifferent = true;
-						isDifferent = true;
-					}
-
-					// determine if the second list has the elements in the first
-					foreach (var expected in rowsExpected)
-					{
-						if (rowsActual.Contains(expected)) continue;
 						expected.IsDifferent = true;
 						isDifferent = true;
 					}
