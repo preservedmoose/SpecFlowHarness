@@ -22,8 +22,7 @@ namespace PreservedMoose.SpecFlowHarness
 
 		public bool ParseBoolean(string column, string fromValue, ref string parseError)
 		{
-			bool value;
-			var isSuccess = TryParseBoolean(fromValue, out value);
+			var isSuccess = TryParseBoolean(fromValue, out bool value);
 			if (!isSuccess)
 			{
 				parseError = string.Format(Resources.Parser_InvalidValue, column, fromValue, typeof(bool));
@@ -33,8 +32,7 @@ namespace PreservedMoose.SpecFlowHarness
 
 		public short ParseInt16(string column, string fromValue, ref string parseError)
 		{
-			short value;
-			var isSuccess = TryParseInt16(fromValue, out value);
+			var isSuccess = TryParseInt16(fromValue, out short value);
 			if (!isSuccess)
 			{
 				parseError = string.Format(Resources.Parser_InvalidValue, column, fromValue, typeof(short));
@@ -44,8 +42,7 @@ namespace PreservedMoose.SpecFlowHarness
 
 		public int ParseInt32(string column, string fromValue, ref string parseError)
 		{
-			int value;
-			var isSuccess = TryParseInt32(fromValue, out value);
+			var isSuccess = TryParseInt32(fromValue, out int value);
 			if (!isSuccess)
 			{
 				parseError = string.Format(Resources.Parser_InvalidValue, column, fromValue, typeof(int));
@@ -55,8 +52,7 @@ namespace PreservedMoose.SpecFlowHarness
 
 		public long ParseInt64(string column, string fromValue, ref string parseError)
 		{
-			long value;
-			var isSuccess = TryParseInt64(fromValue, out value);
+			var isSuccess = TryParseInt64(fromValue, out long value);
 			if (!isSuccess)
 			{
 				parseError = string.Format(Resources.Parser_InvalidValue, column, fromValue, typeof(long));
@@ -66,8 +62,7 @@ namespace PreservedMoose.SpecFlowHarness
 
 		public DateTime ParseDateTime(string column, string fromValue, ref string parseError)
 		{
-			DateTime value;
-			var isSuccess = TryParseDateTime(fromValue, out value);
+			var isSuccess = TryParseDateTime(fromValue, out DateTime value);
 			if (!isSuccess)
 			{
 				parseError = string.Format(Resources.Parser_InvalidValue, column, fromValue, typeof(DateTime));
@@ -103,8 +98,7 @@ namespace PreservedMoose.SpecFlowHarness
 		public TEnum ParseEnum<TEnum>(string column, string fromValue, ref string parseError)
 			where TEnum : struct
 		{
-			TEnum value;
-			var isSuccess = TryParseEnum(fromValue, out value);
+			var isSuccess = TryParseEnum(fromValue, out TEnum value);
 			if (!isSuccess)
 			{
 				parseError = string.Format(Resources.Parser_InvalidValue, column, fromValue, typeof(TEnum));
@@ -128,9 +122,8 @@ namespace PreservedMoose.SpecFlowHarness
 			// for calls that return static objects
 			// we must create an instance on which to call the method
 			// and then return the static object, not the one created
-			TObject value;
 			var temporary = new TObject();
-			if (temporary.TryParse(fromValue, out value)) return value;
+			if (temporary.TryParse(fromValue, out TObject value)) return value;
 
 			parseError = string.Format(Resources.Parser_InvalidValue, column, fromValue, typeof(TObject));
 			return value;
@@ -191,7 +184,8 @@ namespace PreservedMoose.SpecFlowHarness
 		public bool TryParseValue<TValue>(string fromValue, out TValue toValue)
 		{
 			var isSuccess = true;
-			toValue = default(TValue);
+			toValue = default;
+
 			try
 			{
 				// use the build-in converter for the others

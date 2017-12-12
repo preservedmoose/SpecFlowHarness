@@ -181,7 +181,7 @@ namespace PreservedMoose.SpecFlowHarness
 			if (value is String)
 			{
 				var stringValue = value as string;
-				if (!string.IsNullOrWhiteSpace(stringValue)) return;
+				if (stringValue?.TrimEnd().Length == 0) return;
 			}
 			else
 			{
@@ -355,9 +355,8 @@ namespace PreservedMoose.SpecFlowHarness
 		private void AddValidationError<TValue>(TValue value, Expression<Func<TStepRow, TValue>> expression)
 		{
 			var sPropertyName = string.Empty;
-			var memberExpression = expression.Body as MemberExpression;
 
-			if (memberExpression != null &&
+			if (expression.Body is MemberExpression memberExpression &&
 				memberExpression.Member.MemberType == MemberTypes.Property)
 			{
 				sPropertyName = memberExpression.Member.Name;

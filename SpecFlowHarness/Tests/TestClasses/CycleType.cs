@@ -35,6 +35,7 @@ namespace PreservedMoose.SpecFlowHarness.TestClasses
 		/// </summary>
 		public CycleType()
 		{
+			Description = string.Empty;
 		}
 
 		/// <summary>

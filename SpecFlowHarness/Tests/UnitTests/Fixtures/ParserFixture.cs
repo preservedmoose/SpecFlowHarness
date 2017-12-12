@@ -1,6 +1,6 @@
-﻿using System;
-using FluentAssertions;
+﻿using FluentAssertions;
 using PreservedMoose.SpecFlowHarness.TestClasses;
+using System;
 using Xunit;
 
 namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
@@ -29,6 +29,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 
 		// ---------------------------------------------------------------------------------------------
 
+		[Theory]
 		[InlineData("Red Colour", Colour.Red)]
 		[InlineData("Blue Colour", Colour.Blue)]
 		[InlineData("Green Colour", Colour.Green)]
@@ -46,6 +47,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 
 		// ---------------------------------------------------------------------------------------------
 
+		[Theory]
 		[InlineData(true, "true")]
 		[InlineData(false, "false")]
 		[InlineData(true, "yes")]
@@ -86,6 +88,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 
 		// ---------------------------------------------------------------------------------------------
 
+		[Theory]
 		[InlineData(1234, "1234")]
 		[InlineData(1234, "1,234")]
 		public void ParseInt16_should_convert_successfully(Int16 expectedValue, string fromValue)
@@ -124,6 +127,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 
 		// ---------------------------------------------------------------------------------------------
 
+		[Theory]
 		[InlineData(1234, "1234")]
 		[InlineData(1234, "1,234")]
 		public void ParseInt32_should_convert_successfully(Int32 expectedValue, string fromValue)
@@ -162,6 +166,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 
 		// ---------------------------------------------------------------------------------------------
 
+		[Theory]
 		[InlineData(1234, "1234")]
 		[InlineData(1234, "1,234")]
 		public void ParseInt64_should_convert_successfully(Int64 expectedValue, string fromValue)
@@ -200,6 +205,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 
 		// ---------------------------------------------------------------------------------------------
 
+		[Theory]
 		[InlineData(2017, 01, 17, 0, 0, 0, 0, "2017-01-17")]
 		[InlineData(2017, 01, 17, 10, 55, 0, 0, "2017-01-17 10:55")]
 		[InlineData(2017, 01, 17, 10, 55, 33, 0, "2017-01-17 10:55:33")]
@@ -322,6 +328,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			parseError.Should().NotBe(string.Empty);
 		}
 
+		[Theory]
 		[InlineData(typeof(Single), "3.40282347E+39")]
 		[InlineData(typeof(Double), "1.7976931348623157E+309")]
 		[InlineData(typeof(Decimal), "79,228,162,514,264,337,593,543,950,336")]
@@ -342,6 +349,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 
 		// ---------------------------------------------------------------------------------------------
 
+		[Theory]
 		[InlineData(Colour.Red, "Red")]
 		[InlineData(Colour.Blue, "Blue")]
 		[InlineData(Colour.Green, "Green")]
@@ -464,6 +472,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 
 		// ---------------------------------------------------------------------------------------------
 
+		[Theory]
 		[InlineData(true, "true")]
 		[InlineData(false, "false")]
 		[InlineData(true, "yes")]
@@ -502,6 +511,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 
 		// ---------------------------------------------------------------------------------------------
 
+		[Theory]
 		[InlineData(1234, "1234")]
 		[InlineData(1234, "1,234")]
 		public void TryParseInt16_should_convert_successfully(Int16 expectedValue, string fromValue)
@@ -538,6 +548,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 
 		// ---------------------------------------------------------------------------------------------
 
+		[Theory]
 		[InlineData(1234, "1234")]
 		[InlineData(1234, "1,234")]
 		public void TryParseInt32_should_convert_successfully(Int16 expectedValue, string fromValue)
@@ -574,6 +585,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 
 		// ---------------------------------------------------------------------------------------------
 
+		[Theory]
 		[InlineData(1234, "1234")]
 		[InlineData(1234, "1,234")]
 		public void TryParseInt64_should_convert_successfully(Int16 expectedValue, string fromValue)
@@ -610,6 +622,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 
 		// ---------------------------------------------------------------------------------------------
 
+		[Theory]
 		[InlineData(2017, 01, 17, 0, 0, 0, 0, "2017-01-17")]
 		[InlineData(2017, 01, 17, 10, 55, 0, 0, "2017-01-17 10:55")]
 		[InlineData(2017, 01, 17, 10, 55, 33, 0, "2017-01-17 10:55:33")]
@@ -779,6 +792,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 
 		// ---------------------------------------------------------------------------------------------
 
+		[Theory]
 		[InlineData(Colour.Red, "Red")]
 		[InlineData(Colour.Blue, "Blue")]
 		[InlineData(Colour.Green, "Green")]

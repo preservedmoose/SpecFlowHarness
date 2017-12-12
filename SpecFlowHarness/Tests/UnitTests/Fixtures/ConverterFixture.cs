@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using FluentAssertions;
+﻿using FluentAssertions;
 using PreservedMoose.SpecFlowHarness.TestClasses;
+using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
@@ -30,6 +30,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 
 		// ---------------------------------------------------------------------------------------------
 
+		[Theory]
 		[InlineData(true, "true")]
 		[InlineData(false, "false")]
 		[InlineData(true, "yes")]
@@ -46,6 +47,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			actualValue.Should().Be(expectedValue);
 		}
 
+		[Theory]
 		[InlineData(1234, "1234")]
 		[InlineData(1234, "1,234")]
 		public void ToValue_should_convert_successfully_for_Int16(Int16 expectedValue, string fromValue)
@@ -60,6 +62,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			actualValue.Should().Be(expectedValue);
 		}
 
+		[Theory]
 		[InlineData(1234, "1234")]
 		[InlineData(1234, "1,234")]
 		public void ToValue_should_convert_successfully_for_Int32(Int32 expectedValue, string fromValue)
@@ -74,6 +77,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			actualValue.Should().Be(expectedValue);
 		}
 
+		[Theory]
 		[InlineData(1234, "1234")]
 		[InlineData(1234, "1,234")]
 		public void ToValue_should_convert_successfully_for_Int64(Int64 expectedValue, string fromValue)
@@ -88,6 +92,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 			actualValue.Should().Be(expectedValue);
 		}
 
+		[Theory]
 		[InlineData(2017, 01, 17, 0, 0, 0, 0, "2017-01-17")]
 		[InlineData(2017, 01, 17, 10, 55, 0, 0, "2017-01-17 10:55")]
 		[InlineData(2017, 01, 17, 10, 55, 33, 0, "2017-01-17 10:55:33")]
@@ -310,6 +315,7 @@ namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
 
 		// ---------------------------------------------------------------------------------------------
 
+		[Theory]
 		[InlineData(Colour.Red, "Red")]
 		[InlineData(Colour.Blue, "Blue")]
 		[InlineData(Colour.Green, "Green")]

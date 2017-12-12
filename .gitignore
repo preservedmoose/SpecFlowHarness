@@ -2,6 +2,7 @@
 
 **/bin
 **/obj
+**/.vs
 
 # ignore .Net packages
 

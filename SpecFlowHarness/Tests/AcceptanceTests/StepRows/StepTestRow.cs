@@ -1,6 +1,7 @@
-﻿using System;
+﻿using PreservedMoose.SpecFlowHarness.TestClasses;
+using System;
 using System.Collections.Generic;
-using PreservedMoose.SpecFlowHarness.TestClasses;
+using System.Collections.ObjectModel;
 using TechTalk.SpecFlow;
 
 namespace PreservedMoose.SpecFlowHarness.AcceptanceTests.StepRows
@@ -64,11 +65,23 @@ namespace PreservedMoose.SpecFlowHarness.AcceptanceTests.StepRows
 			StringValue = String.Empty;
 			YearMonthValue = YearMonth.MinValue;
 
+			CycleTypeValue = new CycleType();
+
+			Int16Values = new Collection<Int16>();
+			UInt16Values = new Collection<UInt16>();
+			StringValues = new Collection<String>();
+
 			//Int32Value = 1;
 			//Int64Value = 1;
 			//DecimalValue = 1m;
 			//DateTimeValue = DateTime.Now;
 			//StringValue = 1.ToString();
+
+			ColourValues = new Collection<Colour>();
+
+			YearMonthValues = new Collection<YearMonth>();
+
+			CycleTypeValues = new Collection<CycleType>();
 		}
 
 		/// <summary>

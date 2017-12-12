@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace PreservedMoose.SpecFlowHarness.AcceptanceTests.StepRows
@@ -35,6 +36,40 @@ namespace PreservedMoose.SpecFlowHarness.AcceptanceTests.StepRows
 		public string StringValues { get; set; }
 		public string YearMonthValues { get; set; }
 		public string CycleTypeValues { get; set; }
+
+		public TestResult()
+		{
+			IsBooleanValue = String.Empty;
+			CharValue = String.Empty;
+			ByteValue = String.Empty;
+			Int16Value = String.Empty;
+			Int32Value = String.Empty;
+			Int64Value = String.Empty;
+			SingleValue = String.Empty;
+			DoubleValue = String.Empty;
+			DecimalValue = String.Empty;
+			DateTimeValue = String.Empty;
+			ColourValue = String.Empty;
+			StringValue = String.Empty;
+			YearMonthValue = String.Empty;
+			CycleTypeValue = String.Empty;
+
+
+			IsBooleanValues = String.Empty;
+			CharValues = String.Empty;
+			ByteValues = String.Empty;
+			Int16Values = String.Empty;
+			Int32Values = String.Empty;
+			Int64Values = String.Empty;
+			SingleValues = String.Empty;
+			DoubleValues = String.Empty;
+			DecimalValues = String.Empty;
+			DateTimeValues = String.Empty;
+			ColourValues = String.Empty;
+			StringValues = String.Empty;
+			YearMonthValues = String.Empty;
+			CycleTypeValues = String.Empty;
+		}
 
 		public static IReadOnlyCollection<TestResult> GetTestData()
 		{

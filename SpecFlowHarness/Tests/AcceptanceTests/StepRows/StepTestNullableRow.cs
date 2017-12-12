@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using TechTalk.SpecFlow;
 
 namespace PreservedMoose.SpecFlowHarness.AcceptanceTests.StepRows
@@ -14,6 +15,11 @@ namespace PreservedMoose.SpecFlowHarness.AcceptanceTests.StepRows
 
 		// lists
 		public IReadOnlyCollection<Int32?> NullableInt32Values { get; private set; }
+
+		public StepTestNullableRow()
+		{
+			NullableInt32Values = new Collection<Int32?>();
+		}
 	}
 	// ReSharper restore UnusedAutoPropertyAccessor.Local
 	// ReSharper restore BuiltInTypeReferenceStyle

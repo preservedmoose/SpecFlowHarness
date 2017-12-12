@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using PreservedMoose.SpecFlowHarness.AcceptanceTests.StepRows;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using PreservedMoose.SpecFlowHarness.AcceptanceTests.StepRows;
 
 namespace PreservedMoose.SpecFlowHarness.AcceptanceTests.Steps
 {
@@ -13,6 +13,7 @@ namespace PreservedMoose.SpecFlowHarness.AcceptanceTests.Steps
 		public CalculatorData()
 		{
 			Rows = new Collection<StepCalculatorRow>();
+			CalculatedRows = new Collection<StepCalculatorRow>();
 		}
 	}
 }

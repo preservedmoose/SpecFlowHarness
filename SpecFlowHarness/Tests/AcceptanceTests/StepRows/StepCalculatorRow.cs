@@ -23,6 +23,11 @@ namespace PreservedMoose.SpecFlowHarness.AcceptanceTests.StepRows
 		public Decimal Quantity { get; private set; }
 		public String Key { get; private set; }
 
+		public StepCalculatorRow()
+		{
+			Key = String.Empty;
+		}
+
 		public bool Equals(StepCalculatorRow other)
 		{
 			var isEqual = HelperEquals(other);

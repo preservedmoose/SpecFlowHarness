@@ -14,6 +14,17 @@ namespace PreservedMoose.SpecFlowHarness.AcceptanceTests.StepRows
 		public string Quantity6 { get; set; }
 		public string PurchaseDate { get; set; }
 
+		public LargeTestResult()
+		{
+			Quantity1 = string.Empty;
+			Quantity2 = string.Empty;
+			Quantity3 = string.Empty;
+			Quantity4 = string.Empty;
+			Quantity5 = string.Empty;
+			Quantity6 = string.Empty;
+			PurchaseDate = string.Empty;
+		}
+
 		public static IReadOnlyCollection<LargeTestResult> GetTestData()
 		{
 			var purchaseDate = new DateTime(2017, 1, 1);
