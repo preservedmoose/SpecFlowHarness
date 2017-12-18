@@ -5,6 +5,7 @@
 
 # ignore .Net packages
 
+**/.vs
 **/packages
 
 # ignore Pickles documentation
