@@ -20,7 +20,7 @@ namespace PreservedMoose.SpecFlowHarness
 		// ----------------------------------------------------------------------------------------
 
 		public TValue ToValue<TValue>(String fromValue)
-			//where TValue : ValueType
+		//where TValue : ValueType
 		{
 			var type = typeof(TValue);
 			dynamic toValue = default(TValue);
@@ -169,7 +169,7 @@ namespace PreservedMoose.SpecFlowHarness
 		// ----------------------------------------------------------------------------------------
 
 		public IReadOnlyList<TValue> ToValues<TValue>(String fromValues)
-			//where TValue : ValueType
+		//where TValue : ValueType
 		{
 			var toValues = new List<TValue>();
 

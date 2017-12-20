@@ -1,6 +1,9 @@
-﻿using FluentAssertions;
+﻿using System;
+
+using FluentAssertions;
+
 using PreservedMoose.SpecFlowHarness.TestClasses;
-using System;
+
 using Xunit;
 
 namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
