@@ -25,7 +25,7 @@ namespace PreservedMoose.SpecFlowHarness
 		/// <param name="fromValue"></param>
 		/// <returns></returns>
 		TValue ToValue<TValue>(String fromValue);
-			//where TValue : ValueType
+		//where TValue : ValueType
 
 		/// <summary>
 		/// helper to parse Enum types
@@ -74,7 +74,7 @@ namespace PreservedMoose.SpecFlowHarness
 		/// <param name="fromValues">a comma separated list that we wish to parse</param>
 		/// <returns></returns>
 		IReadOnlyList<TValue> ToValues<TValue>(String fromValues);
-			//where TValue : ValueType
+		//where TValue : ValueType
 
 		/// <summary>
 		/// helper to parse Enum types

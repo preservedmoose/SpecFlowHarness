@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
+
 namespace PreservedMoose.SpecFlowHarness.AcceptanceTests.Steps
 {
 	public class CalculatorData

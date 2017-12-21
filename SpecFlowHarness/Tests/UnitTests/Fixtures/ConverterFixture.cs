@@ -2,6 +2,11 @@
 using PreservedMoose.SpecFlowHarness.TestClasses;
 using System;
 using System.Collections.Generic;
+
+using FluentAssertions;
+
+using PreservedMoose.SpecFlowHarness.TestClasses;
+
 using Xunit;
 
 namespace PreservedMoose.SpecFlowHarness.UnitTests.Fixtures
